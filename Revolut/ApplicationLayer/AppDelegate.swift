@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
-		appCoordinator = AppCoordinator(with: navigationController)
+		let router = AppRouter(rootController: navigationController)
+		appCoordinator = AppCoordinator(router: router)
 		appCoordinator?.start()
 
 		return true

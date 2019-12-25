@@ -14,19 +14,14 @@ class AppCoordinator {
 
 	var childCoordinators = [Coordinator]()
 
-	private let navigationController: UINavigationController
+	private let router: Routable
 	private var currencyList = [PlainCurrency]()
-
-	private lazy var startViewController: StartViewType = {
-		let startViewController = StartViewBuilder.buildStartView()
-		startViewController.delegate = self
-		return startViewController
-	}()
+	private var startViewModule = StartViewModuleBuilder.build()
 
 	// MARK: - Construction
 
-	init(with navigationController: UINavigationController) {
-		self.navigationController = navigationController
+	init(router: Routable) {
+		self.router = router
 		if let currencyList = convertibleCurrencyList() {
 			self.currencyList = currencyList
 		}
@@ -35,20 +30,46 @@ class AppCoordinator {
 	// MARK: - Functions
 
 	private func showStartView() {
-		startViewController.configure()
-		navigationController.pushViewController(startViewController, animated: false)
+		startViewModule.onAddCurrency = { self.runCurrencyFlow() }
+		startViewModule.onFinish = { self.runCrossCurrencyFlow() }
+		
+		router.setRootModule(startViewModule, animated: false)
+		startViewModule.configure()
 	}
 	
 	private func runCurrencyFlow() {
-		let currencyCoordinator = CurrencyCoordinator(with: navigationController, currencyList: currencyList)
-		currencyCoordinator.delegate = self
+		let currencyRouter = CurrencyRouter()
+		let currencyCoordinator = CurrencyCoordinator(router: currencyRouter, currencyList: currencyList)
+		currencyCoordinator.onFinish = { [weak currencyCoordinator, weak self] in
+			self?.router.dismissModule(animated: true) {
+				currencyCoordinator?.router.setRootModule(nil)
+				self?.removeChild(currencyCoordinator)
+				self?.runCrossCurrencyFlow()
+			}
+		}
+
+		currencyCoordinator.onCancel = { [weak currencyCoordinator, weak self] in
+			self?.router.dismissModule(animated: true) {
+				currencyCoordinator?.router.setRootModule(nil)
+				self?.removeChild(currencyCoordinator)
+			}
+		}
+		router.present(currencyCoordinator.router, animated: true)
 		currencyCoordinator.start()
 		addChild(currencyCoordinator)
 	}
 
 	private func runCrossCurrencyFlow() {
-		let crossCurrencyCoordinator = CrossCurrencyCoordinator(with: navigationController, currencyList: currencyList)
-		crossCurrencyCoordinator.delegate = self
+		let currencyRouter = CurrencyRouter()
+		let crossCurrencyCoordinator = CrossCurrencyCoordinator(router: currencyRouter, currencyList: currencyList)
+		crossCurrencyCoordinator.onFinish = { [weak crossCurrencyCoordinator, weak self] in
+			self?.router.dismissModule(animated: true) {
+				crossCurrencyCoordinator?.router.setRootModule(nil)
+				self?.removeChild(crossCurrencyCoordinator)
+			}
+		}
+
+		router.present(crossCurrencyCoordinator.router, animated: true)
 		crossCurrencyCoordinator.start()
 		addChild(crossCurrencyCoordinator)
 	}
@@ -76,31 +97,5 @@ class AppCoordinator {
 extension AppCoordinator: Coordinator {
 	func start() {
 		showStartView()
-	}
-}
-
-extension AppCoordinator: StartViewControllerDelegate {
-	func showCurrencyListView() {
-		runCurrencyFlow()
-	}
-
-	func showCrossCurrencyListView() {
-		runCrossCurrencyFlow()
-	}
-}
-
-extension AppCoordinator: CurrencyCoordinatorDelegate, CrossCurrencyCoordinatorDelegate {
-	func finish(flow: Coordinator) {
-		removeChild(flow)
-
-		switch flow {
-		case is CurrencyCoordinator:
-			print("The CurrencyFlow is finish")
-			startViewController.configure()
-		case is CrossCurrencyCoordinator:
-			print("The CrossCurrencyFlow is finish")
-		default:
-			print("can't cast flow")
-		}
 	}
 }

@@ -1,5 +1,5 @@
 //
-//  StartViewBuilder.swift
+//  StartViewModuleBuilder.swift
 //  Revolut
 //
 //  Created by Blashkin Georgiy on 13.11.2019.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class StartViewBuilder {
-	static func buildStartView() -> StartViewType {
+class StartViewModuleBuilder {
+	static func build() -> StartViewModule {
 		let serviceFactory = ServiceFactory()
 		let presenter = StartViewPresenter(currencyService: serviceFactory.createCurrencyService())
 		let startViewController = StartViewController(presenter: presenter)

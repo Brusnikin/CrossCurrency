@@ -8,25 +8,26 @@
 
 import UIKit
 
-protocol CurrencyListViewControllerProtocol {
+protocol CurrencyListViewModule: class, Presentable {
+    typealias Completion = () -> Void
+    typealias CurrencySelectedBlock = (PlainCurrency) -> Void
+
+    var onCurrencySelect: CurrencySelectedBlock? { get set }
+    var onFinish: Completion? { get set }
+    var onCancel: Completion? { get set }
+
 	func configure(currency list: [PlainCurrency])
 	func select(currency: PlainCurrency)
 }
-
-protocol CurrencyListViewControllerDelegate: class {
-	func show(selected currency: PlainCurrency)
-	func showCrossCurrencyList()
-	func finishFlow()
-}
-
-typealias CurrencyListViewType = CurrencyListViewControllerProtocol & CurrencyListViewController
 
 class CurrencyListViewController: UIViewController {
 
 	// MARK: - Properties
 
-	weak var delegate: CurrencyListViewControllerDelegate?
 	let presenter: CurrencyListPresenterProtocol
+	var onCurrencySelect: CurrencySelectedBlock?
+	var onFinish: Completion?
+	var onCancel: Completion?
 
 	private let tableView = UITableView()
 	private lazy var tableAdapter = CurrencyListTableAdapter(tableView: tableView)
@@ -70,7 +71,7 @@ class CurrencyListViewController: UIViewController {
 	}
 }
 
-extension CurrencyListViewController: CurrencyListViewControllerProtocol {
+extension CurrencyListViewController: CurrencyListViewModule {
 	func configure(currency list: [PlainCurrency]) {
 		tableAdapter.update(currency: list)
 	}
@@ -87,9 +88,9 @@ extension CurrencyListViewController: CurrencyListTableAdapterDelegate {
 
 		if selectedCurrencyList.count > 1 {
 			presenter.cache(selected: selectedCurrencyList)
-			delegate?.showCrossCurrencyList()
+			onFinish?()
 		} else {
-			delegate?.show(selected: currency)
+			onCurrencySelect?(currency)
 		}
 	}
 }
@@ -102,6 +103,6 @@ extension CurrencyListViewController: CurrencyListPresenterDelegate {
 
 extension CurrencyListViewController: UIAdaptivePresentationControllerDelegate {
 	func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-		delegate?.finishFlow()
+		onCancel?()
 	}
 }

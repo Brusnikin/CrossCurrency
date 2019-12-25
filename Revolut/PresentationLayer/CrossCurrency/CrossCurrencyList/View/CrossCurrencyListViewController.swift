@@ -8,24 +8,35 @@
 
 import UIKit
 
-protocol CrossCurrencyListViewControllerProtocol: class {
+protocol CrossCurrencyListViewModule: Presentable {
+    typealias Completion = () -> Void
+    typealias ShowCurrencyBlock = () -> Void
+
+    var onFinish: Completion? { get set }
+    var onAddCurrency: ShowCurrencyBlock? { get set }
+
 	func configure()
 	func addCurrencyPair()
 }
 
-protocol CrossCurrencyListViewControllerDelegate: class {
-	func showCurrencyListView()
-	func showStartView()
-}
+extension CrossCurrencyListViewController: CrossCurrencyListViewModule {
+	func configure() {
+		presenter.suspendUpdates()
+		presenter.obtainCrossCurrencyRates()
+	}
 
-typealias CrossCurrencyListViewType = CrossCurrencyListViewControllerProtocol & CrossCurrencyListViewController
+	func addCurrencyPair() {
+		presenter.obtainCrossCurrencyRates()
+	}
+}
 
 class CrossCurrencyListViewController: UIViewController {
 
 	// MARK: - Properties
 
-	weak var delegate: CrossCurrencyListViewControllerDelegate?
 	let presenter: CrossCurrencyListPresenterProtocol
+	var onFinish: Completion?
+	var onAddCurrency: ShowCurrencyBlock?
 
 	private let tableHeaderView = CrossCurrencyTableHeaderView()
 	private let tableView = UITableView()
@@ -75,17 +86,6 @@ class CrossCurrencyListViewController: UIViewController {
 	}
 }
 
-extension CrossCurrencyListViewController: CrossCurrencyListViewControllerProtocol {
-	func configure() {
-		presenter.suspendUpdates()
-		presenter.obtainCrossCurrencyRates()
-	}
-
-	func addCurrencyPair() {
-		presenter.obtainCrossCurrencyRates()
-	}
-}
-
 extension CrossCurrencyListViewController: CrossCurrencyListPresenterDelegate {
 	func update(viewModelList: [CrossCurrencyViewModel]) {
 		tableAdapter.update(viewModel: viewModelList)
@@ -100,13 +100,13 @@ extension CrossCurrencyListViewController: CrossCurrencyListTableAdapterDelegate
 
 	func hideEmptyTableView() {
 		presenter.suspendUpdates()
-		delegate?.showStartView()
+		onFinish?()
 	}
 }
 
 extension CrossCurrencyListViewController: CrossCurrencyTableHeaderViewDelegate {
 	func showCurrencyListView() {
 		presenter.suspendUpdates()
-		delegate?.showCurrencyListView()
+		onAddCurrency?()
 	}
 }

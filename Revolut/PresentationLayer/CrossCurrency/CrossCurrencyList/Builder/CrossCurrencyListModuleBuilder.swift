@@ -1,5 +1,5 @@
 //
-//  CrossCurrencyListBuilder.swift
+//  CrossCurrencyListModuleBuilder.swift
 //  Revolut
 //
 //  Created by Blashkin Georgiy on 12.11.2019.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class CrossCurrencyListBuilder {
-	static func buildCrossCurrencyListView() -> CrossCurrencyListViewType {
+class CrossCurrencyListModuleBuilder {
+	static func build() -> CrossCurrencyListViewModule {
 		let serviceFactory = ServiceFactory()
 		let crossCurrencyService = serviceFactory.createCrossCurrencyService()
 		let presenter = CrossCurrencyListPresenter(crossCurrencyService: crossCurrencyService,

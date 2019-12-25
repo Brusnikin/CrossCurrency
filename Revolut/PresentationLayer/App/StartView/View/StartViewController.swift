@@ -8,23 +8,28 @@
 
 import UIKit
 
-protocol StartViewControllerProtocol: class {
+protocol StartViewModule: Presentable {
+	typealias Completion = () -> Void
+	typealias ShowCurrencyBlock = () -> Void
+
+	var onFinish: Completion? { get set }
+	var onAddCurrency: ShowCurrencyBlock? { get set }
+
 	func configure()
 }
 
-protocol StartViewControllerDelegate: class {
-	func showCurrencyListView()
-	func showCrossCurrencyListView()
+extension StartViewController: StartViewModule {
+	func configure() {
+		presenter.checkCrossCurrencyList()
+	}
 }
-
-typealias StartViewType = StartViewControllerProtocol & StartViewController
 
 class StartViewController: UIViewController {
 
 	// MARK: - Properties
 
-	weak var delegate: StartViewControllerDelegate?
-
+	var onFinish: Completion?
+	var onAddCurrency: ShowCurrencyBlock?
 	let presenter: StartViewPresenterProtocol
 
 	private lazy var startContentViewType: StartContentViewType? = {
@@ -67,20 +72,14 @@ class StartViewController: UIViewController {
 	}
 }
 
-extension StartViewController: StartViewControllerProtocol {
-	func configure() {
-		presenter.checkCrossCurrencyList()
-	}
-}
-
 extension StartViewController: StartViewPresenterDelegate {
 	func shouldShowCrossCurrencyList() {
-		delegate?.showCrossCurrencyListView()
+		onFinish?()
 	}
 }
 
 extension StartViewController: StartContentViewDelegate {
 	func addAction() {
-		delegate?.showCurrencyListView()
+		onAddCurrency?()
 	}
 }
