@@ -53,8 +53,8 @@ class CurrencyCoordinator {
 	private func createCurrencyListViewModule() -> CurrencyListViewModule {
 		let currencyListViewModule = CurrencyListModuleBuilder.build()
 		currencyListViewModule.onCurrencySelect = showCurrencyListView
-		currencyListViewModule.onFinish = { self.onFinish?() }
-		currencyListViewModule.onCancel = { self.onCancel?() }
+		currencyListViewModule.onFinish = onFinish
+		currencyListViewModule.onCancel = onCancel
 		currencyListViewModule.configure(currency: currencyList)
 		return currencyListViewModule
 	}
