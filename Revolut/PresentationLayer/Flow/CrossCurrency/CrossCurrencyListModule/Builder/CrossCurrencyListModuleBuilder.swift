@@ -8,6 +8,17 @@
 
 import Foundation
 
+protocol CrossCurrencyListViewModule: Presentable {
+    typealias Completion = () -> Void
+    typealias ShowCurrencyBlock = () -> Void
+
+    var onFinish: Completion? { get set }
+    var onAddCurrency: ShowCurrencyBlock? { get set }
+
+	func configure()
+	func addCurrencyPair()
+}
+
 class CrossCurrencyListModuleBuilder {
 	static func build() -> CrossCurrencyListViewModule {
 		let serviceFactory = ServiceFactory()

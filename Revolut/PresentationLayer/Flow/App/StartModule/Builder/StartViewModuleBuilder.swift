@@ -8,6 +8,16 @@
 
 import Foundation
 
+protocol StartViewModule: Presentable {
+	typealias Completion = () -> Void
+	typealias ShowCurrencyBlock = () -> Void
+
+	var onFinish: Completion? { get set }
+	var onAddCurrency: ShowCurrencyBlock? { get set }
+
+	func configure()
+}
+
 class StartViewModuleBuilder {
 	static func build() -> StartViewModule {
 		let serviceFactory = ServiceFactory()

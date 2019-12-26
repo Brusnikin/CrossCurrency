@@ -8,22 +8,6 @@
 
 import UIKit
 
-protocol StartViewModule: Presentable {
-	typealias Completion = () -> Void
-	typealias ShowCurrencyBlock = () -> Void
-
-	var onFinish: Completion? { get set }
-	var onAddCurrency: ShowCurrencyBlock? { get set }
-
-	func configure()
-}
-
-extension StartViewController: StartViewModule {
-	func configure() {
-		presenter.checkCrossCurrencyList()
-	}
-}
-
 class StartViewController: UIViewController {
 
 	// MARK: - Properties
@@ -69,6 +53,12 @@ class StartViewController: UIViewController {
 
 	deinit {
 		print("StartViewController")
+	}
+}
+
+extension StartViewController: StartViewModule {
+	func configure() {
+		presenter.checkCrossCurrencyList()
 	}
 }
 

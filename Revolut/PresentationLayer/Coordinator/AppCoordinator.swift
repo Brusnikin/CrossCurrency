@@ -30,9 +30,8 @@ class AppCoordinator {
 	// MARK: - Functions
 
 	private func showStartView() {
-		startViewModule.onAddCurrency = { self.runCurrencyFlow() }
-		startViewModule.onFinish = { self.runCrossCurrencyFlow() }
-		
+		startViewModule.onAddCurrency = runCurrencyFlow
+		startViewModule.onFinish = runCrossCurrencyFlow
 		router.setRootModule(startViewModule, animated: false)
 		startViewModule.configure()
 	}

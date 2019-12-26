@@ -8,6 +8,18 @@
 
 import Foundation
 
+protocol CurrencyListViewModule: class, Presentable {
+    typealias Completion = () -> Void
+    typealias CurrencySelectedBlock = (PlainCurrency) -> Void
+
+    var onCurrencySelect: CurrencySelectedBlock? { get set }
+    var onFinish: Completion? { get set }
+    var onCancel: Completion? { get set }
+
+	func configure(currency list: [PlainCurrency])
+	func select(currency: PlainCurrency)
+}
+
 class CurrencyListModuleBuilder {
 	static func build() -> CurrencyListViewModule {
 		let serviceFactory = ServiceFactory()

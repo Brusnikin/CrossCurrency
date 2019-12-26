@@ -153,6 +153,16 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		67E8022D23B4B7CC00ECB476 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				750C4553237B065A00FDFBFB /* App */,
+				750C4552237B064E00FDFBFB /* Currency */,
+				75840EF7237D9A3D00D1544F /* CrossCurrency */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 		750C4515237AE16000FDFBFB = {
 			isa = PBXGroup;
 			children = (
@@ -178,9 +188,6 @@
 				750C4545237AE96B00FDFBFB /* PresentationLayer */,
 				750C454D237AFC9000FDFBFB /* BusinessLogicLayer */,
 				75840EDC237C015E00D1544F /* CoreLayer */,
-				750C4546237AEFDB00FDFBFB /* Coordinator */,
-				6753A7A823B3BE10001BC18A /* Router */,
-				75D93863237E1A4800D50FED /* Protocol */,
 				750CD92E2381757900D426CC /* Resource */,
 				750C4544237AE1E600FDFBFB /* SupportingFiles */,
 				750C452A237AE16100FDFBFB /* Assets.xcassets */,
@@ -221,9 +228,10 @@
 		750C4545237AE96B00FDFBFB /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				750C4553237B065A00FDFBFB /* App */,
-				750C4552237B064E00FDFBFB /* Currency */,
-				75840EF7237D9A3D00D1544F /* CrossCurrency */,
+				750C4546237AEFDB00FDFBFB /* Coordinator */,
+				6753A7A823B3BE10001BC18A /* Router */,
+				75D93863237E1A4800D50FED /* Protocol */,
+				67E8022D23B4B7CC00ECB476 /* Flow */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -268,8 +276,7 @@
 		750C4552237B064E00FDFBFB /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				750C455C237B074100FDFBFB /* Model */,
-				750C455E237B081A00FDFBFB /* CurrencyList */,
+				750C455E237B081A00FDFBFB /* CurrencyListModule */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
@@ -277,19 +284,19 @@
 		750C4553237B065A00FDFBFB /* App */ = {
 			isa = PBXGroup;
 			children = (
-				750C4554237B069500FDFBFB /* StartView */,
+				750C4554237B069500FDFBFB /* StartModule */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		750C4554237B069500FDFBFB /* StartView */ = {
+		750C4554237B069500FDFBFB /* StartModule */ = {
 			isa = PBXGroup;
 			children = (
 				75D93851237DA81600D50FED /* Builder */,
 				75D93855237DA94900D50FED /* Presenter */,
 				75D93852237DA81B00D50FED /* View */,
 			);
-			path = StartView;
+			path = StartModule;
 			sourceTree = "<group>";
 		};
 		750C455C237B074100FDFBFB /* Model */ = {
@@ -300,24 +307,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		750C455D237B080700FDFBFB /* CrossCurrencyList */ = {
+		750C455D237B080700FDFBFB /* CrossCurrencyListModule */ = {
 			isa = PBXGroup;
 			children = (
+				75273F5C237EC8F400B54882 /* Model */,
 				75840EE7237C99B900D1544F /* Builder */,
 				75840EE8237C99C300D1544F /* Presenter */,
 				750C4561237B083D00FDFBFB /* View */,
 			);
-			path = CrossCurrencyList;
+			path = CrossCurrencyListModule;
 			sourceTree = "<group>";
 		};
-		750C455E237B081A00FDFBFB /* CurrencyList */ = {
+		750C455E237B081A00FDFBFB /* CurrencyListModule */ = {
 			isa = PBXGroup;
 			children = (
+				750C455C237B074100FDFBFB /* Model */,
 				7542EA7F237B5DD8006F3D31 /* Builder */,
 				7542EA7C237B4AD1006F3D31 /* Presenter */,
 				750C4560237B083600FDFBFB /* View */,
 			);
-			path = CurrencyList;
+			path = CurrencyListModule;
 			sourceTree = "<group>";
 		};
 		750C4560237B083600FDFBFB /* View */ = {
@@ -453,8 +462,7 @@
 		75840EF7237D9A3D00D1544F /* CrossCurrency */ = {
 			isa = PBXGroup;
 			children = (
-				75273F5C237EC8F400B54882 /* Model */,
-				750C455D237B080700FDFBFB /* CrossCurrencyList */,
+				750C455D237B080700FDFBFB /* CrossCurrencyListModule */,
 			);
 			path = CrossCurrency;
 			sourceTree = "<group>";

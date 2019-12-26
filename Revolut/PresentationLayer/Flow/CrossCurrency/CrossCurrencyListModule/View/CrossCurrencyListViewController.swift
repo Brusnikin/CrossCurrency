@@ -8,28 +8,6 @@
 
 import UIKit
 
-protocol CrossCurrencyListViewModule: Presentable {
-    typealias Completion = () -> Void
-    typealias ShowCurrencyBlock = () -> Void
-
-    var onFinish: Completion? { get set }
-    var onAddCurrency: ShowCurrencyBlock? { get set }
-
-	func configure()
-	func addCurrencyPair()
-}
-
-extension CrossCurrencyListViewController: CrossCurrencyListViewModule {
-	func configure() {
-		presenter.suspendUpdates()
-		presenter.obtainCrossCurrencyRates()
-	}
-
-	func addCurrencyPair() {
-		presenter.obtainCrossCurrencyRates()
-	}
-}
-
 class CrossCurrencyListViewController: UIViewController {
 
 	// MARK: - Properties
@@ -83,6 +61,17 @@ class CrossCurrencyListViewController: UIViewController {
 		
 		let frame = CGRect(origin: .zero, size: CGSize(width: view.frame.width, height: 50))
 		tableView.tableHeaderView?.frame = frame
+	}
+}
+
+extension CrossCurrencyListViewController: CrossCurrencyListViewModule {
+	func configure() {
+		presenter.suspendUpdates()
+		presenter.obtainCrossCurrencyRates()
+	}
+
+	func addCurrencyPair() {
+		presenter.obtainCrossCurrencyRates()
 	}
 }
 
