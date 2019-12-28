@@ -20,7 +20,7 @@ class CrossCurrencyCoordinator {
 
 	var childCoordinators = [Coordinator]()
 	var onFinish: Completion?
-	
+
 	private(set) var router: Routable
 	private let currencyList: [PlainCurrency]
 	private var crossCurrencyListViewModule = CrossCurrencyListModuleBuilder.build()
@@ -40,8 +40,8 @@ class CrossCurrencyCoordinator {
 
 	private func showCrossCurrencyListView() {
 		crossCurrencyListViewModule.configure()
-		crossCurrencyListViewModule.onAddCurrency = { [weak self] in
-			self?.runCurrencyFlow()
+		crossCurrencyListViewModule.onAddCurrency = { [unowned self] in
+			self.runCurrencyFlow()
 		}
 		crossCurrencyListViewModule.onFinish = onFinish
 		router.setRootModule(crossCurrencyListViewModule, animated: false)
@@ -50,18 +50,18 @@ class CrossCurrencyCoordinator {
 	private func runCurrencyFlow() {
 		let currencyRouter = CurrencyRouter()
 		let currencyCoordinator = CurrencyCoordinator(router: currencyRouter, currencyList: currencyList)
-		currencyCoordinator.onFinish = { [weak currencyCoordinator, weak self] in
-			self?.router.dismissModule(animated: true) {
+		currencyCoordinator.onFinish = { [weak currencyCoordinator, unowned self] in
+			self.router.dismissModule(animated: true) {
 				currencyCoordinator?.router.setRootModule(nil)
-				self?.removeChild(currencyCoordinator)
-				self?.crossCurrencyListViewModule.addCurrencyPair()
+				self.removeChild(currencyCoordinator)
+				self.crossCurrencyListViewModule.addCurrencyPair()
 			}
 		}
 
-		currencyCoordinator.onCancel = { [weak currencyCoordinator, weak self] in
+		currencyCoordinator.onCancel = { [weak currencyCoordinator, unowned self] in
 			currencyRouter.dismissModule(animated: true) {
 				currencyCoordinator?.router.setRootModule(nil)
-				self?.removeChild(currencyCoordinator)
+				self.removeChild(currencyCoordinator)
 			}
 		}
 

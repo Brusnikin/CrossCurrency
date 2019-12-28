@@ -14,7 +14,7 @@ class AppCoordinator {
 
 	var childCoordinators = [Coordinator]()
 
-	private let router: Routable
+	private(set) var router: Routable
 	private var currencyList = [PlainCurrency]()
 	private var startViewModule = StartViewModuleBuilder.build()
 
@@ -39,18 +39,18 @@ class AppCoordinator {
 	private func runCurrencyFlow() {
 		let currencyRouter = CurrencyRouter()
 		let currencyCoordinator = CurrencyCoordinator(router: currencyRouter, currencyList: currencyList)
-		currencyCoordinator.onFinish = { [weak currencyCoordinator, weak self] in
-			self?.router.dismissModule(animated: true) {
+		currencyCoordinator.onFinish = { [weak currencyCoordinator, unowned self] in
+			self.router.dismissModule(animated: true) {
 				currencyCoordinator?.router.setRootModule(nil)
-				self?.removeChild(currencyCoordinator)
-				self?.runCrossCurrencyFlow()
+				self.removeChild(currencyCoordinator)
+				self.runCrossCurrencyFlow()
 			}
 		}
 
-		currencyCoordinator.onCancel = { [weak currencyCoordinator, weak self] in
-			self?.router.dismissModule(animated: true) {
+		currencyCoordinator.onCancel = { [weak currencyCoordinator, unowned self] in
+			self.router.dismissModule(animated: true) {
 				currencyCoordinator?.router.setRootModule(nil)
-				self?.removeChild(currencyCoordinator)
+				self.removeChild(currencyCoordinator)
 			}
 		}
 		router.present(currencyCoordinator.router, animated: true)
@@ -61,10 +61,10 @@ class AppCoordinator {
 	private func runCrossCurrencyFlow() {
 		let currencyRouter = CurrencyRouter()
 		let crossCurrencyCoordinator = CrossCurrencyCoordinator(router: currencyRouter, currencyList: currencyList)
-		crossCurrencyCoordinator.onFinish = { [weak crossCurrencyCoordinator, weak self] in
-			self?.router.dismissModule(animated: true) {
+		crossCurrencyCoordinator.onFinish = { [weak crossCurrencyCoordinator, unowned self] in
+			self.router.dismissModule(animated: true) {
 				crossCurrencyCoordinator?.router.setRootModule(nil)
-				self?.removeChild(crossCurrencyCoordinator)
+				self.removeChild(crossCurrencyCoordinator)
 			}
 		}
 
