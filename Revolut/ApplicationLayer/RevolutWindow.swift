@@ -9,14 +9,13 @@
 import UIKit
 
 class RevolutWindow: UIWindow {
-
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
 		if #available(iOS 13.0, *) {
 			apply(theme: UITraitCollection.current.userInterfaceStyle)
 		} else {
-			// Fallback on earlier versions
+			LightTheme().apply()
 		}
 	}
 
@@ -32,7 +31,7 @@ class RevolutWindow: UIWindow {
 				apply(theme: traitCollection.userInterfaceStyle)
 			}
 		} else {
-			// Fallback on earlier versions
+			LightTheme().apply()
 		}
 	}
 
