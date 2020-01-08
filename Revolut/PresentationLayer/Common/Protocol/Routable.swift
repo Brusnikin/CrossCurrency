@@ -7,6 +7,10 @@
 //
 
 protocol Routable: Presentable {
+    typealias Completion = () -> Void
+
+	var onCancel: Completion? { get set }
+
     func present(_ module: Presentable?, animated: Bool)
     func push(_ module: Presentable?, animated: Bool)
     func popModule(animated: Bool)

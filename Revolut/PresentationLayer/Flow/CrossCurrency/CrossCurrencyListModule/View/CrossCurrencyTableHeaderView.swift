@@ -18,7 +18,7 @@ class CrossCurrencyTableHeaderView: UIView {
 
 	weak var delegate: CrossCurrencyTableHeaderViewDelegate?
 
-	private let button = UIButton(type: .system)
+	private let button = RevolutButton()
 
     // MARK: - Construction
 

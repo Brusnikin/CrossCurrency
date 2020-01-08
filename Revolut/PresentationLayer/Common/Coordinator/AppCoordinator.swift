@@ -47,12 +47,11 @@ class AppCoordinator {
 			}
 		}
 
-		currencyCoordinator.onCancel = { [weak currencyCoordinator, unowned self] in
-			self.router.dismissModule(animated: true) {
-				currencyCoordinator?.router.setRootModule(nil)
-				self.removeChild(currencyCoordinator)
-			}
+		router.onCancel = { [weak currencyCoordinator, unowned self] in
+			currencyCoordinator?.router.setRootModule(nil)
+			self.removeChild(currencyCoordinator)
 		}
+
 		router.present(currencyCoordinator.router, animated: true)
 		currencyCoordinator.start()
 		addChild(currencyCoordinator)

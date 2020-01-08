@@ -12,11 +12,11 @@ class CrossCurrencyTableViewCell: UITableViewCell {
 
 	// MARK: - Outlets
 
-	@IBOutlet weak var numeratorLabel: UILabel!
-	@IBOutlet weak var numeratorNameLabel: UILabel!
+	@IBOutlet weak var numeratorLabel: RevolutLabel!
+	@IBOutlet weak var numeratorNameLabel: RevolutLabel!
 
-	@IBOutlet weak var rateLabel: UILabel!
-	@IBOutlet weak var denominatorLabel: UILabel!
+	@IBOutlet weak var rateLabel: RevolutTitleLabel!
+	@IBOutlet weak var denominatorLabel: RevolutSubtitleLabel!
 }
 
 extension CrossCurrencyTableViewCell: ConfigurableCell {

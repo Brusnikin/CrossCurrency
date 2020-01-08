@@ -18,8 +18,8 @@ class CurrencyTableViewCell: UITableViewCell {
 			countryFlagImageView.layer.cornerRadius = countryFlagImageView.frame.height / 2
 		}
 	}
-	@IBOutlet weak var currencyCodeLabel: UILabel!
-	@IBOutlet weak var currencyNameLabel: UILabel!
+	@IBOutlet weak var currencyCodeLabel: RevolutLabel!
+	@IBOutlet weak var currencyNameLabel: RevolutLabel!
 
 	// MARK: - Lifecycle
 

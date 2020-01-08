@@ -41,7 +41,7 @@ class CrossCurrencyListTableAdapter: NSObject {
 
 	private func insert(viewModel list: [CrossCurrencyViewModel]) {
 		if list.count > viewModelList.count,
-			let viewModel = viewModelList.first {
+			let viewModel = list.first {
 			viewModelList.insert(viewModel, at: 0)
 			tableView.beginUpdates()
 			tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)

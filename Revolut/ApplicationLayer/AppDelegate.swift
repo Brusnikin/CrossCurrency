@@ -13,23 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	// MARK: Properties
 
-    var window: UIWindow?
+	var window: RevolutWindow?
 	private var appCoordinator: Coordinator?
 	private let navigationController = UINavigationController()
 
 	// MARK: - Lifecycle
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		
-		if #available(iOS 13.0, *) {
-			if UITraitCollection.current.userInterfaceStyle == .light {
-				appearanceLight()
-			}
-		} else {
-			appearanceLight()
-		}
 
-		window = UIWindow(frame: UIScreen.main.bounds)
+		window = RevolutWindow(frame: UIScreen.main.bounds)
 		window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
@@ -38,12 +30,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		appCoordinator?.start()
 
 		return true
-	}
-
-	private func appearanceLight() {
-		UINavigationBar.appearance().barTintColor = .white
-		UINavigationBar.appearance().isTranslucent = false
-		UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-		UINavigationBar.appearance().shadowImage = UIImage()
 	}
 }

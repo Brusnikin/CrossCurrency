@@ -52,17 +52,16 @@ class CrossCurrencyCoordinator {
 		let currencyCoordinator = CurrencyCoordinator(router: currencyRouter, currencyList: currencyList)
 		currencyCoordinator.onFinish = { [weak currencyCoordinator, unowned self] in
 			self.router.dismissModule(animated: true) {
+				self.crossCurrencyListViewModule.addCurrencyPair()
 				currencyCoordinator?.router.setRootModule(nil)
 				self.removeChild(currencyCoordinator)
-				self.crossCurrencyListViewModule.addCurrencyPair()
 			}
 		}
 
-		currencyCoordinator.onCancel = { [weak currencyCoordinator, unowned self] in
-			currencyRouter.dismissModule(animated: true) {
-				currencyCoordinator?.router.setRootModule(nil)
-				self.removeChild(currencyCoordinator)
-			}
+		router.onCancel = { [weak currencyCoordinator, unowned self] in
+			self.crossCurrencyListViewModule.addCurrencyPair()
+			currencyCoordinator?.router.setRootModule(nil)
+			self.removeChild(currencyCoordinator)
 		}
 
 		self.router.present(currencyCoordinator.router, animated: true)

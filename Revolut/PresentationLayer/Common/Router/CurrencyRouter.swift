@@ -1,5 +1,5 @@
 //
-//  AppRouter.swift
+//  CurrencyRouter.swift
 //  Revolut
 //
 //  Created by George Blashkin on 25.12.2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppRouter {
+class CurrencyRouter: RootRouter {
 
 	// MARK: - Properties
 
@@ -20,14 +20,25 @@ class AppRouter {
 
 	// MARK: - Construction
 
-	init(rootController: UINavigationController) {
-		self.rootController = rootController
+	convenience override init() {
+		self.init(rootController: nil)
+	}
+
+	init(rootController: UINavigationController?) {
+		self.rootController = rootController ?? UINavigationController()
+		super.init()
+		self.rootController.delegate = self
+	}
+
+	deinit {
+		print("CurrencyRouter")
 	}
 }
 
-extension AppRouter: Routable {
+extension CurrencyRouter: Routable {
 	func present(_ module: Presentable?, animated: Bool) {
 		guard let controller = module?.toPresent else { return }
+		controller.presentationController?.delegate = self
 		rootController.present(controller, animated: animated, completion: nil)
 	}
 
@@ -48,7 +59,11 @@ extension AppRouter: Routable {
 	}
 
 	func setRootModule(_ module: Presentable?, animated: Bool) {
-		guard let controller = module?.toPresent else { return }
+		guard let controller = module?.toPresent else {
+			rootController.viewControllers = []
+			return
+		}
+		controller.modalTransitionStyle = .crossDissolve
 		rootController.setViewControllers([controller], animated: animated)
 	}
 }

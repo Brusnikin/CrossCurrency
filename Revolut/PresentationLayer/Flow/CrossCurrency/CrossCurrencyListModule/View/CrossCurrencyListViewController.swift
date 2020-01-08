@@ -46,7 +46,6 @@ class CrossCurrencyListViewController: UIViewController {
 
 		tableHeaderView.delegate = self
 		tableView.tableHeaderView = tableHeaderView
-		tableView.separatorColor = .clear
 		tableView.delegate = tableAdapter
 		tableView.dataSource = tableAdapter
     }

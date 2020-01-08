@@ -15,7 +15,6 @@ class CurrencyListViewController: UIViewController {
 	let presenter: CurrencyListPresenterProtocol
 	var onCurrencySelect: CurrencySelectedBlock?
 	var onFinish: Completion?
-	var onCancel: Completion?
 
 	private let tableView = UITableView()
 	private lazy var tableAdapter = CurrencyListTableAdapter(tableView: tableView)
@@ -47,14 +46,12 @@ class CurrencyListViewController: UIViewController {
 
 		tableAdapter.delegate = self
 
-		tableView.separatorColor = .clear
 		tableView.delegate = tableAdapter
 		tableView.dataSource = tableAdapter
     }
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		navigationController?.presentationController?.delegate = self
 		navigationItem.hidesBackButton = true
 	}
 }
@@ -86,11 +83,5 @@ extension CurrencyListViewController: CurrencyListTableAdapterDelegate {
 extension CurrencyListViewController: CurrencyListPresenterDelegate {
 	func update(currencyList selected: [PlainCurrency]) {
 		tableAdapter.select(currencyList: selected)
-	}
-}
-
-extension CurrencyListViewController: UIAdaptivePresentationControllerDelegate {
-	func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-		onCancel?()
 	}
 }

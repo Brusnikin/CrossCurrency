@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67535DA023BE1E0300AC7807 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67535D9F23BE1E0300AC7807 /* Theme.swift */; };
+		67535DA223BE1F8100AC7807 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67535DA123BE1F8100AC7807 /* DarkTheme.swift */; };
+		67535DA423BE1F9000AC7807 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67535DA323BE1F9000AC7807 /* LightTheme.swift */; };
+		67535DA723BE203D00AC7807 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67535DA623BE203D00AC7807 /* UIWindow.swift */; };
+		67535DA923BE209000AC7807 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67535DA823BE209000AC7807 /* UITableViewCell.swift */; };
+		67535DAB23BE24B500AC7807 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67535DAA23BE24B500AC7807 /* Then.swift */; };
 		6753A7A523B3A192001BC18A /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6753A7A423B3A192001BC18A /* Presentable.swift */; };
 		6753A7A723B3B9EC001BC18A /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6753A7A623B3B9EC001BC18A /* Routable.swift */; };
 		6753A7AA23B3BE51001BC18A /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6753A7A923B3BE50001BC18A /* AppRouter.swift */; };
+		6764524923C0C95400E0DBE3 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6764524823C0C95400E0DBE3 /* RootRouter.swift */; };
 		67AC7B6423B3D523005C61C4 /* CurrencyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC7B6323B3D523005C61C4 /* CurrencyRouter.swift */; };
+		67D1398723C5EC5200C56EB6 /* RevolutWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D1398623C5EC5200C56EB6 /* RevolutWindow.swift */; };
+		67E9318A23BE294900FDCD49 /* RevolutControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E9318923BE294900FDCD49 /* RevolutControl.swift */; };
+		67E9318C23BE2BF000FDCD49 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E9318B23BE2BF000FDCD49 /* UIView.swift */; };
 		750C4522237AE16000FDFBFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750C4521237AE16000FDFBFB /* AppDelegate.swift */; };
 		750C452B237AE16100FDFBFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 750C452A237AE16100FDFBFB /* Assets.xcassets */; };
 		750C452E237AE16100FDFBFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 750C452C237AE16100FDFBFB /* LaunchScreen.storyboard */; };
@@ -70,10 +80,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67535D9F23BE1E0300AC7807 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		67535DA123BE1F8100AC7807 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		67535DA323BE1F9000AC7807 /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		67535DA623BE203D00AC7807 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
+		67535DA823BE209000AC7807 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		67535DAA23BE24B500AC7807 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		6753A7A423B3A192001BC18A /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		6753A7A623B3B9EC001BC18A /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		6753A7A923B3BE50001BC18A /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		6764524823C0C95400E0DBE3 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		67AC7B6323B3D523005C61C4 /* CurrencyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRouter.swift; sourceTree = "<group>"; };
+		67D1398623C5EC5200C56EB6 /* RevolutWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutWindow.swift; sourceTree = "<group>"; };
+		67E9318923BE294900FDCD49 /* RevolutControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutControl.swift; sourceTree = "<group>"; };
+		67E9318B23BE2BF000FDCD49 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		750C451E237AE16000FDFBFB /* Revolut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revolut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		750C4521237AE16000FDFBFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		750C452A237AE16100FDFBFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,9 +164,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67535D9E23BE1DC000AC7807 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				67535DAC23BE278B00AC7807 /* Theme */,
+				67E9318823BE291400FDCD49 /* Control */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		67535DA523BE202400AC7807 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				67E9318B23BE2BF000FDCD49 /* UIView.swift */,
+				67535DA623BE203D00AC7807 /* UIWindow.swift */,
+				67535DA823BE209000AC7807 /* UITableViewCell.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		67535DAC23BE278B00AC7807 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				67535DA123BE1F8100AC7807 /* DarkTheme.swift */,
+				67535DA323BE1F9000AC7807 /* LightTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		67535DAE23BE27F200AC7807 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				67535D9E23BE1DC000AC7807 /* Appearance */,
+				750C4546237AEFDB00FDFBFB /* Coordinator */,
+				6753A7A823B3BE10001BC18A /* Router */,
+				75D93863237E1A4800D50FED /* Protocol */,
+				67535DA523BE202400AC7807 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		6753A7A823B3BE10001BC18A /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				6764524823C0C95400E0DBE3 /* RootRouter.swift */,
 				6753A7A923B3BE50001BC18A /* AppRouter.swift */,
 				67AC7B6323B3D523005C61C4 /* CurrencyRouter.swift */,
 			);
@@ -161,6 +222,14 @@
 				75840EF7237D9A3D00D1544F /* CrossCurrency */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		67E9318823BE291400FDCD49 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				67E9318923BE294900FDCD49 /* RevolutControl.swift */,
+			);
+			path = Control;
 			sourceTree = "<group>";
 		};
 		750C4515237AE16000FDFBFB = {
@@ -212,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				750C4521237AE16000FDFBFB /* AppDelegate.swift */,
+				67D1398623C5EC5200C56EB6 /* RevolutWindow.swift */,
 			);
 			path = ApplicationLayer;
 			sourceTree = "<group>";
@@ -228,9 +298,7 @@
 		750C4545237AE96B00FDFBFB /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				750C4546237AEFDB00FDFBFB /* Coordinator */,
-				6753A7A823B3BE10001BC18A /* Router */,
-				75D93863237E1A4800D50FED /* Protocol */,
+				67535DAE23BE27F200AC7807 /* Common */,
 				67E8022D23B4B7CC00ECB476 /* Flow */,
 			);
 			path = PresentationLayer;
@@ -517,9 +585,11 @@
 		75D93863237E1A4800D50FED /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				67535D9F23BE1E0300AC7807 /* Theme.swift */,
 				75D93864237E1A5900D50FED /* ConfigurableCell.swift */,
 				6753A7A423B3A192001BC18A /* Presentable.swift */,
 				6753A7A623B3B9EC001BC18A /* Routable.swift */,
+				67535DAA23BE24B500AC7807 /* Then.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -631,14 +701,18 @@
 				750C455B237B070900FDFBFB /* CrossCurrencyListViewController.swift in Sources */,
 				7542EA7E237B4AEB006F3D31 /* CurrencyListPresenter.swift in Sources */,
 				750C4551237AFCD900FDFBFB /* CurrencyService.swift in Sources */,
+				67535DA723BE203D00AC7807 /* UIWindow.swift in Sources */,
 				75840EF2237CA17300D1544F /* CrossCurrencyService.swift in Sources */,
 				75273F5E237EC90000B54882 /* PlainCrossCurrency.swift in Sources */,
 				75D93857237DA95C00D50FED /* StartViewPresenter.swift in Sources */,
 				750C4559237B06EE00FDFBFB /* CurrencyListViewController.swift in Sources */,
 				67AC7B6423B3D523005C61C4 /* CurrencyRouter.swift in Sources */,
 				6753A7A723B3B9EC001BC18A /* Routable.swift in Sources */,
+				6764524923C0C95400E0DBE3 /* RootRouter.swift in Sources */,
+				67E9318C23BE2BF000FDCD49 /* UIView.swift in Sources */,
 				75840EEC237C9CCD00D1544F /* CrossCurrencyListPresenter.swift in Sources */,
 				75840EF9237D9A8000D1544F /* CrossCurrencyCoordinator.swift in Sources */,
+				67535DA923BE209000AC7807 /* UITableViewCell.swift in Sources */,
 				75840EE3237C049D00D1544F /* CodableStorage.swift in Sources */,
 				75D93865237E1A5900D50FED /* ConfigurableCell.swift in Sources */,
 				750C454A237AF17100FDFBFB /* AppCoordinator.swift in Sources */,
@@ -651,13 +725,19 @@
 				75840EE0237C024100D1544F /* DiskStorage.swift in Sources */,
 				6753A7A523B3A192001BC18A /* Presentable.swift in Sources */,
 				7542EA73237B172D006F3D31 /* PlainCurrency.swift in Sources */,
+				67D1398723C5EC5200C56EB6 /* RevolutWindow.swift in Sources */,
 				7561FEFB23841D4A00551EFA /* ServiceFactory.swift in Sources */,
 				75E047132382BEC90023013E /* StartContentView.swift in Sources */,
+				67E9318A23BE294900FDCD49 /* RevolutControl.swift in Sources */,
 				75840EF6237D909C00D1544F /* CrossCurrencyTableHeaderView.swift in Sources */,
+				67535DAB23BE24B500AC7807 /* Then.swift in Sources */,
+				67535DA423BE1F9000AC7807 /* LightTheme.swift in Sources */,
 				750C4522237AE16000FDFBFB /* AppDelegate.swift in Sources */,
+				67535DA023BE1E0300AC7807 /* Theme.swift in Sources */,
 				7542EA76237B32EB006F3D31 /* CurrencyListTableAdapter.swift in Sources */,
 				75D93854237DA83500D50FED /* StartViewModuleBuilder.swift in Sources */,
 				75273F61237EC93C00B54882 /* CrossCurrencyViewModel.swift in Sources */,
+				67535DA223BE1F8100AC7807 /* DarkTheme.swift in Sources */,
 				6753A7AA23B3BE51001BC18A /* AppRouter.swift in Sources */,
 				750C454C237AF4E400FDFBFB /* CurrencyCoordinator.swift in Sources */,
 				750C4556237B06C000FDFBFB /* StartViewController.swift in Sources */,

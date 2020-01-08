@@ -54,7 +54,6 @@ class CurrencyCoordinator {
 		let currencyListViewModule = CurrencyListModuleBuilder.build()
 		currencyListViewModule.onCurrencySelect = showCurrencyListView
 		currencyListViewModule.onFinish = onFinish
-		currencyListViewModule.onCancel = onCancel
 		currencyListViewModule.configure(currency: currencyList)
 		return currencyListViewModule
 	}

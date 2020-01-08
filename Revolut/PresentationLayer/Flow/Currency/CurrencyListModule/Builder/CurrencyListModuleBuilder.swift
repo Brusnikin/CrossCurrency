@@ -14,7 +14,6 @@ protocol CurrencyListViewModule: class, Presentable {
 
     var onCurrencySelect: CurrencySelectedBlock? { get set }
     var onFinish: Completion? { get set }
-    var onCancel: Completion? { get set }
 
 	func configure(currency list: [PlainCurrency])
 	func select(currency: PlainCurrency)
