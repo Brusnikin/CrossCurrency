@@ -43,12 +43,13 @@ extension CrossCurrencyService: CrossCurrencyServiceProtocol {
 			guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Double] else {
 				fatalError("JSON could not be serialized.")
 			}
-
+			
 			var crossCurrencyList = [PlainCrossCurrency]()
 			for currency in list {
-				var crossCurrency = PlainCrossCurrency(code: currency.code, rate: currency.rate, pair: currency.pair)
-				json.forEach { if crossCurrency.code == $0.key { crossCurrency.rate = $0.value } }
-				crossCurrencyList.append(crossCurrency)
+				if let rate = json[currency.code] {
+					let crossCurrency = PlainCrossCurrency(code: currency.code, rate: rate, pair: currency.pair)
+					crossCurrencyList.append(crossCurrency)
+				}
 			}
 
 			DispatchQueue.main.async {

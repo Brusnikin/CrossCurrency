@@ -17,6 +17,7 @@ protocol CrossCurrencyListPresenterProtocol: class {
 
 protocol CrossCurrencyListPresenterDelegate: class {
 	func update(viewModelList: [CrossCurrencyViewModel])
+	func hideCurrencyListView()
 }
 
 class CrossCurrencyListPresenter {
@@ -118,8 +119,13 @@ extension CrossCurrencyListPresenter: CrossCurrencyListPresenterProtocol {
 	}
 
 	func remove(crossCurrency: CrossCurrencyViewModel) {
+		crossCurrencyList = crossCurrencyList.filter { $0.code != crossCurrency.code }
 		currencyService.removeCrossCurrency(with: crossCurrency.code)
-		obtainCrossCurrencyRates()
+		if crossCurrencyList.isEmpty {
+			delegate?.hideCurrencyListView()
+		} else {
+			createTimer()
+		}
 	}
 
 	func obtainCrossCurrencyRates() {

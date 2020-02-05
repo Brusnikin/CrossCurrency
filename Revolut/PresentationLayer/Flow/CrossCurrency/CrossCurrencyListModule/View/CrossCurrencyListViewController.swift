@@ -78,17 +78,16 @@ extension CrossCurrencyListViewController: CrossCurrencyListPresenterDelegate {
 	func update(viewModelList: [CrossCurrencyViewModel]) {
 		tableAdapter.update(viewModel: viewModelList)
 	}
+
+	func hideCurrencyListView() {
+		onFinish?()
+	}
 }
 
 extension CrossCurrencyListViewController: CrossCurrencyListTableAdapterDelegate {
 	func delete(crossCurrency: CrossCurrencyViewModel) {
 		presenter.suspendUpdates()
 		presenter.remove(crossCurrency: crossCurrency)
-	}
-
-	func hideEmptyTableView() {
-		presenter.suspendUpdates()
-		onFinish?()
 	}
 }
 

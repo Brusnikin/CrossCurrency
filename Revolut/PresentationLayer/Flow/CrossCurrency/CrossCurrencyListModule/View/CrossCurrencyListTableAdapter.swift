@@ -14,7 +14,6 @@ protocol CrossCurrencyListTableAdapterProtocol: class {
 
 protocol CrossCurrencyListTableAdapterDelegate: class {
 	func delete(crossCurrency: CrossCurrencyViewModel)
-	func hideEmptyTableView()
 }
 
 class CrossCurrencyListTableAdapter: NSObject {
@@ -65,10 +64,6 @@ class CrossCurrencyListTableAdapter: NSObject {
 		tableView.beginUpdates()
 		tableView.deleteRows(at: [indexPath], with: .automatic)
 		tableView.endUpdates()
-
-		if viewModelList.isEmpty {
-			delegate?.hideEmptyTableView()
-		}
 	}
 }
 
