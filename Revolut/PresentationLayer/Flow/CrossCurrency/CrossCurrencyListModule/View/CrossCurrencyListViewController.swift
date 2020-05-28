@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CrossCurrencyListViewController: UIViewController {
+final class CrossCurrencyListViewController: UIViewController {
 
 	// MARK: - Properties
 

@@ -16,7 +16,7 @@ protocol StartViewPresenterDelegate: class {
 	func shouldShowCrossCurrencyList()
 }
 
-class StartViewPresenter {
+final class StartViewPresenter {
 
 	// MARK: - Properties
 

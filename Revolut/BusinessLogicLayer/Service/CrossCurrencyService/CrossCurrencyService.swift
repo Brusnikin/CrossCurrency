@@ -16,7 +16,7 @@ protocol CrossCurrencyServiceDelegate: class {
 	func update(crossCurrency list: [PlainCrossCurrency], shouldCache: Bool)
 }
 
-class CrossCurrencyService {
+final class CrossCurrencyService {
 
 	// MARK: - Properties
 

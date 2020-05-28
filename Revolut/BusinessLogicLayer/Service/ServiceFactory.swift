@@ -13,7 +13,7 @@ protocol ServiceFactoryProtocol {
 	func createCrossCurrencyService() -> CrossCurrencyServiceProtocol & CrossCurrencyService
 }
 
-class ServiceFactory: ServiceFactoryProtocol {
+final class ServiceFactory: ServiceFactoryProtocol {
 	func createCurrencyService() -> CurrencyServiceProtocol {
 		let path = URL(fileURLWithPath: NSTemporaryDirectory())
 		let disk = DiskStorage(path: path)

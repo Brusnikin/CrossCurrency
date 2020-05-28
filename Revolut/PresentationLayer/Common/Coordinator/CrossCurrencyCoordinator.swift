@@ -14,7 +14,7 @@ protocol CrossCurrencyCoordinatorProtocol: class {
 	var onFinish: Completion? { get set }
 }
 
-class CrossCurrencyCoordinator {
+final class CrossCurrencyCoordinator {
 
 	// MARK: - Properties
 

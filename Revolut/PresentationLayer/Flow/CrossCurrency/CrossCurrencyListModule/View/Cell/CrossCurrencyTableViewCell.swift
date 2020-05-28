@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CrossCurrencyTableViewCell: UITableViewCell {
+final class CrossCurrencyTableViewCell: UITableViewCell {
 
 	// MARK: - Outlets
 

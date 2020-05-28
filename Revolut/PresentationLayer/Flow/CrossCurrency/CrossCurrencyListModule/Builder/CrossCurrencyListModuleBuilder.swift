@@ -19,7 +19,7 @@ protocol CrossCurrencyListViewModule: Presentable {
 	func addCurrencyPair()
 }
 
-class CrossCurrencyListModuleBuilder {
+final class CrossCurrencyListModuleBuilder {
 	static func build() -> CrossCurrencyListViewModule {
 		let serviceFactory = ServiceFactory()
 		let crossCurrencyService = serviceFactory.createCrossCurrencyService()

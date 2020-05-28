@@ -15,7 +15,7 @@ protocol NetworkClientProtocol {
 	func request(crossCurrency list: [PlainCrossCurrency], onSuccess: @escaping Success, onFailure: @escaping Failure)
 }
 
-class CrossCurrencyNetworkClient: NetworkClientProtocol {
+final class CrossCurrencyNetworkClient: NetworkClientProtocol {
 
 	deinit {
 		print("CrossCurrencyNetworkClient")

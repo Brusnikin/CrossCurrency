@@ -26,7 +26,7 @@ enum StorageError: Error {
     case cantWrite(Error)
 }
 
-class DiskStorage {
+final class DiskStorage {
 
 	// MARK: - Properties
 

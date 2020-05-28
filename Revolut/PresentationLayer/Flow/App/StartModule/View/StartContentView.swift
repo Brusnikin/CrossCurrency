@@ -16,7 +16,7 @@ protocol StartContentViewDelegate: class {
 
 typealias StartContentViewType = StartContentViewProtocol & StartContentView
 
-class StartContentView: RevolutView, StartContentViewProtocol {
+final class StartContentView: RevolutView, StartContentViewProtocol {
 
 	// MARK: - Properties
 

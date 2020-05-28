@@ -12,7 +12,7 @@ protocol CrossCurrencyTableHeaderViewDelegate: class {
 	func showCurrencyListView()
 }
 
-class CrossCurrencyTableHeaderView: UIView {
+final class CrossCurrencyTableHeaderView: UIView {
 
     // MARK: - Properties
 

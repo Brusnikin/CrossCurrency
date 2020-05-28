@@ -17,7 +17,7 @@ protocol CurrencyListTableAdapterDelegate: class {
 	func selected(currency: PlainCurrency)
 }
 
-class CurrencyListTableAdapter: NSObject {
+final class CurrencyListTableAdapter: NSObject {
 
 	// MARK: - Properties
 

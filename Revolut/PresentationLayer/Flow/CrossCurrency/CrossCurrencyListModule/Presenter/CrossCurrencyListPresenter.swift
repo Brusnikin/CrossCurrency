@@ -20,7 +20,7 @@ protocol CrossCurrencyListPresenterDelegate: class {
 	func hideCurrencyListView()
 }
 
-class CrossCurrencyListPresenter {
+final class CrossCurrencyListPresenter {
 
 	// MARK: - Properties
 

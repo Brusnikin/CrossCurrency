@@ -15,7 +15,7 @@ protocol CurrencyCoordinatorProtocol: class {
 	var onCancel: Completion? { get set }
 }
 
-class CurrencyCoordinator {
+final class CurrencyCoordinator {
 
 	// MARK: - Properties
 

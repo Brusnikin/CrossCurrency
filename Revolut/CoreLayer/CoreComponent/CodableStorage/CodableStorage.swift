@@ -14,7 +14,7 @@ protocol CodableStorageProtocol: class {
 	func save<T: Encodable>(_ value: T, for key: String, handler: @escaping Handler<Data>) throws
 }
 
-class CodableStorage {
+final class CodableStorage {
 
 	// MARK: - Properties
 

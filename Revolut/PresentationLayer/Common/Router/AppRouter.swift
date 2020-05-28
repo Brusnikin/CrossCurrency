@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppRouter: RootRouter {
+final class AppRouter: RootRouter {
 
 	// MARK: - Properties
 

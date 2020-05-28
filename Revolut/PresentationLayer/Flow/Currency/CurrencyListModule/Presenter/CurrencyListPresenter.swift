@@ -17,7 +17,7 @@ protocol CurrencyListPresenterDelegate: class {
 	func update(currencyList selected: [PlainCurrency])
 }
 
-class CurrencyListPresenter {
+final class CurrencyListPresenter {
 
 	// MARK: - Properties
 

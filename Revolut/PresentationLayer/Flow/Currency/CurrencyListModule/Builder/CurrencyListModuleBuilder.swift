@@ -19,7 +19,7 @@ protocol CurrencyListViewModule: class, Presentable {
 	func select(currency: PlainCurrency)
 }
 
-class CurrencyListModuleBuilder {
+final class CurrencyListModuleBuilder {
 	static func build() -> CurrencyListViewModule {
 		let serviceFactory = ServiceFactory()
 		let presenter = CurrencyListPresenter(currencyService: serviceFactory.createCurrencyService())

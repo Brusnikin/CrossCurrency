@@ -16,7 +16,7 @@ protocol CurrencyServiceProtocol: class {
 	func removeCrossCurrency(with code: String)
 }
 
-class CurrencyService {
+final class CurrencyService {
 
 	// MARK: - Properies
 

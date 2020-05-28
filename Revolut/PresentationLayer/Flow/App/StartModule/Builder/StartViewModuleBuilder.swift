@@ -18,7 +18,7 @@ protocol StartViewModule: Presentable {
 	func configure()
 }
 
-class StartViewModuleBuilder {
+final class StartViewModuleBuilder {
 	static func build() -> StartViewModule {
 		let serviceFactory = ServiceFactory()
 		let presenter = StartViewPresenter(currencyService: serviceFactory.createCurrencyService())

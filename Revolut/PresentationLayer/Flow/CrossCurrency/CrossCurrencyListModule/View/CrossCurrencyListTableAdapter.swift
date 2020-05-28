@@ -16,7 +16,7 @@ protocol CrossCurrencyListTableAdapterDelegate: class {
 	func delete(crossCurrency: CrossCurrencyViewModel)
 }
 
-class CrossCurrencyListTableAdapter: NSObject {
+final class CrossCurrencyListTableAdapter: NSObject {
 
 	// MARK: - Properties
 

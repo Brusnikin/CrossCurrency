@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RevolutWindow: UIWindow {
+final class RevolutWindow: UIWindow {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
